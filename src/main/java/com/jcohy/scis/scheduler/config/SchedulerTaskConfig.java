@@ -1,12 +1,12 @@
 package com.jcohy.scis.scheduler.config;
 
-import com.jcohy.scis.scheduler.task.SchedulerTaskHandler;
+import com.jcohy.scis.scheduler.task.AbstractSchedulerTaskHandler;
 import com.jcohy.scis.scheduler.task.SchedulerTaskQueue;
 
 public class SchedulerTaskConfig {
     private SchedulerTaskQueue taskQueue;
-    private SchedulerTaskHandler taskHandler;
-    public SchedulerTaskConfig(SchedulerTaskHandler taskHandler,SchedulerTaskQueue taskQueue){
+    private AbstractSchedulerTaskHandler taskHandler;
+    public SchedulerTaskConfig(AbstractSchedulerTaskHandler taskHandler, SchedulerTaskQueue taskQueue){
         this.taskHandler = taskHandler;
         this.taskQueue= taskQueue;
     }
@@ -19,11 +19,11 @@ public class SchedulerTaskConfig {
         this.taskQueue = taskQueue;
     }
 
-    public SchedulerTaskHandler getTaskHandler() {
+    public AbstractSchedulerTaskHandler getTaskHandler() {
         return taskHandler;
     }
 
-    public void setTaskHandler(SchedulerTaskHandler taskHandler) {
+    public void setTaskHandler(AbstractSchedulerTaskHandler taskHandler) {
         this.taskHandler = taskHandler;
     }
 }

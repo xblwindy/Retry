@@ -3,10 +3,10 @@ package com.jcohy.scis.scheduler.task;
 import com.jcohy.scis.scheduler.common.Constants;
 import com.jcohy.scis.scheduler.model.Task;
 
-public abstract class SchedulerTaskHandler {
+public abstract class AbstractSchedulerTaskHandler {
     private SchedulerTaskQueue schedulerTaskQueue;
 
-    public SchedulerTaskHandler(SchedulerTaskQueue queue){
+    public AbstractSchedulerTaskHandler(SchedulerTaskQueue queue){
         this.schedulerTaskQueue = queue;
     }
 

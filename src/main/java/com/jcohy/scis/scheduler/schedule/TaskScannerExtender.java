@@ -2,7 +2,7 @@ package com.jcohy.scis.scheduler.schedule;
 
 import com.jcohy.scis.scheduler.config.SchedulerTaskConfig;
 import com.jcohy.scis.scheduler.model.Task;
-import com.jcohy.scis.scheduler.task.TaskScanner;
+import com.jcohy.scis.scheduler.task.AbstractTaskScanner;
 import com.jcohy.scis.service.SchedulerTaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 @Component
-public class TaskScannerExtender extends TaskScanner {
+public class TaskScannerExtender extends AbstractTaskScanner {
 
 
     @Autowired

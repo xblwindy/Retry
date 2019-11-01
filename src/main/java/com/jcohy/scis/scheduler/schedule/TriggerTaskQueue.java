@@ -2,7 +2,7 @@ package com.jcohy.scis.scheduler.schedule;
 
 
 import com.jcohy.scis.scheduler.model.Task;
-import com.jcohy.scis.scheduler.task.SchedulerTaskHandler;
+import com.jcohy.scis.scheduler.task.AbstractSchedulerTaskHandler;
 import com.jcohy.scis.scheduler.task.SchedulerTaskQueue;
 
 import org.slf4j.Logger;
@@ -28,19 +28,19 @@ private ScheduledTaskRegistrar scheduledTaskRegistrar;
 private Map<String, ScheduledFuture<?>> taskFutures = new ConcurrentHashMap<>();
 
     @Override
-    public void addTask(Task task, SchedulerTaskHandler schedulerTaskHandler) {
+    public void addTask(Task task, AbstractSchedulerTaskHandler abstractSchedulerTaskHandler) {
         if (!contains(task.getTaskId())){
             TaskScheduler scheduler = scheduledTaskRegistrar.getScheduler();
             //TODO 增加日志
-            TriggerTask triggerTask = createTask(task,schedulerTaskHandler);
+            TriggerTask triggerTask = createTask(task, abstractSchedulerTaskHandler);
             ScheduledFuture<?> future = scheduler.schedule(triggerTask.getRunnable(),triggerTask.getTrigger());
             taskFutures.put(task.getTaskId(),future);
         }
     }
 
-    private TriggerTask createTask(Task task, SchedulerTaskHandler schedulerTaskHandler) {
+    private TriggerTask createTask(Task task, AbstractSchedulerTaskHandler abstractSchedulerTaskHandler) {
         return new TriggerTask(()->{
-            schedulerTaskHandler.execTask(task);
+            abstractSchedulerTaskHandler.execTask(task);
         },new CronTrigger(task.getStartTime().substring(0,task.getStartTime().length()-5)));
     }
 

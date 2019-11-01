@@ -1,10 +1,9 @@
 package com.jcohy.scis.scheduler.schedule;
 
 import com.jcohy.scis.scheduler.model.Task;
-import com.jcohy.scis.scheduler.task.SchedulerTaskHandler;
+import com.jcohy.scis.scheduler.task.AbstractSchedulerTaskHandler;
 import com.jcohy.scis.scheduler.task.SchedulerTaskQueue;
 import com.jcohy.scis.service.SchedulerTaskService;
-import org.apache.el.util.ReflectionUtil;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -14,7 +13,7 @@ import org.springframework.util.ReflectionUtils;
 
 import java.lang.reflect.Method;
 @Component
-public class BusinessTaskHandler extends SchedulerTaskHandler implements ApplicationContextAware {
+public class BusinessTaskHandler extends AbstractSchedulerTaskHandler implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
 

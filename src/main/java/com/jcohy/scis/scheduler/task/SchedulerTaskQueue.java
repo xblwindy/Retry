@@ -6,7 +6,7 @@ import com.jcohy.scis.scheduler.model.Task;
 import java.util.Set;
 
 public interface SchedulerTaskQueue {
-    public void addTask(Task task, SchedulerTaskHandler schedulerTaskHandler);
+    public void addTask(Task task, AbstractSchedulerTaskHandler abstractSchedulerTaskHandler);
 
     public void cancelTask(String taskId);
 
