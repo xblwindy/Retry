@@ -1,5 +1,14 @@
 package com.jcohy.scis.scheduler.model;
 
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
+import com.google.gson.JsonObject;
+import lombok.Data;
+
+import java.util.Map;
+import java.util.Objects;
+
+@Data
 public class Task {
     private String autoDestroy;
     private String taskId;
@@ -11,75 +20,46 @@ public class Task {
     private String taskContext;
     private Long id;
 
-    public String getTaskName() {
-        return taskName;
+
+   public void setVariables(Map<String,String> variables){
+       String json = JSONObject.toJSONString(variables);
+       this.taskContext = json;
+   }
+
+    public Map<String,String> getVariables(){
+        Map<String,String> map = JSONObject.parseObject(taskContext,new TypeReference<Map<String,String>>(){});
+        return map;
     }
 
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
+    @Override
+    public String toString() {
+        return "Task{" +
+                "autoDestroy='" + autoDestroy + '\'' +
+                ", taskId='" + taskId + '\'' +
+                ", taskName='" + taskName + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", riskTime='" + riskTime + '\'' +
+                ", taskStatus='" + taskStatus + '\'' +
+                ", taskHandler='" + taskHandler + '\'' +
+                ", taskContext='" + taskContext + '\'' +
+                ", id=" + id +
+                '}';
     }
 
-    public String getStartTime() {
-        return startTime;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return Objects.equals(autoDestroy, task.autoDestroy) &&
+                Objects.equals(taskId, task.taskId) &&
+                Objects.equals(taskName, task.taskName) &&
+                Objects.equals(startTime, task.startTime) &&
+                Objects.equals(riskTime, task.riskTime) &&
+                Objects.equals(taskStatus, task.taskStatus) &&
+                Objects.equals(taskHandler, task.taskHandler) &&
+                Objects.equals(taskContext, task.taskContext) &&
+                Objects.equals(id, task.id);
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getRiskTime() {
-        return riskTime;
-    }
-
-    public void setRiskTime(String riskTime) {
-        this.riskTime = riskTime;
-    }
-
-    public String getTaskStatus() {
-        return taskStatus;
-    }
-
-    public void setTaskStatus(String taskStatus) {
-        this.taskStatus = taskStatus;
-    }
-
-    public String getTaskHandler() {
-        return taskHandler;
-    }
-
-    public void setTaskHandler(String taskHandler) {
-        this.taskHandler = taskHandler;
-    }
-
-    public String getTaskContext() {
-        return taskContext;
-    }
-
-    public void setTaskContext(String taskContext) {
-        this.taskContext = taskContext;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getAutoDestroy() {
-        return autoDestroy;
-    }
-
-    public void setAutoDestroy(String autoDestroy) {
-        this.autoDestroy = autoDestroy;
-    }
-
-    public String getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
-    }
 }
