@@ -25,6 +25,9 @@ public class Task {
        this.taskContext = json;
    }
 
+    public void setVariables(String json){
+        this.taskContext = json;
+    }
     public Map<String,String> getVariables(){
         Map<String,String> map = JSONObject.parseObject(taskContext,new TypeReference<Map<String,String>>(){});
         return map;
