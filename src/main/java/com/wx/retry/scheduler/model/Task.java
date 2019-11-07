@@ -20,16 +20,18 @@ public class Task {
     private Long id;
 
 
-   public void setVariables(Map<String,String> variables){
-       String json = JSONObject.toJSONString(variables);
-       this.taskContext = json;
-   }
-
-    public void setVariables(String json){
+    public void setVariables(Map<String, String> variables) {
+        String json = JSONObject.toJSONString(variables);
         this.taskContext = json;
     }
-    public Map<String,String> getVariables(){
-        Map<String,String> map = JSONObject.parseObject(taskContext,new TypeReference<Map<String,String>>(){});
+
+    public void setVariables(String json) {
+        this.taskContext = json;
+    }
+
+    public Map<String, String> getVariables() {
+        Map<String, String> map = JSONObject.parseObject(taskContext, new TypeReference<Map<String, String>>() {
+        });
         return map;
     }
 

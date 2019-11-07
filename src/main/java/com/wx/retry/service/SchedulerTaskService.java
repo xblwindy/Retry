@@ -2,6 +2,7 @@ package com.wx.retry.service;
 
 import com.wx.retry.scheduler.model.Task;
 
+import java.util.Date;
 import java.util.List;
 
 public interface SchedulerTaskService {
@@ -17,5 +18,7 @@ public interface SchedulerTaskService {
 
     List<Task> queryUnFinishedTask();
 
-    void saveTask(Task task);
+    void addCommonTask(String taskName, Date startTime,String classCommonName,String variables);
+
+    void addUndestoryTask(String taskName, Date startTime,String classCommonName,String variables);
 }
