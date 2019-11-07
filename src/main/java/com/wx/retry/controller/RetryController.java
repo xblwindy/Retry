@@ -10,11 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/admin/retry")
-public class RetryController extends BaseController{
+public class RetryController extends BaseController {
 
 
     @Autowired
@@ -26,21 +27,18 @@ public class RetryController extends BaseController{
     @Autowired
     private SchedulerTaskService schedulerTaskService;
 
+    private final String TASK_NAME = "retryTask";
+
     @PostMapping("/add")
     @ResponseBody
     public String addRetry(@RequestBody String params) throws Exception {
         JSONObject obj = JSONObject.parseObject(params);
-        Task task = generateTask(obj);
-        schedulerTaskService.saveTask(task);
-        triggerTaskQueue.addTask(new Task(),businessTaskHandler);
+        String variables = obj.getString("args");
+        Long startTime = System.currentTimeMillis() + 5 * 1000 * 60;
+        Date date = new Date(startTime);
+        schedulerTaskService.addCommonTask(TASK_NAME, date, "retryService", variables);
+        triggerTaskQueue.addTask(new Task(), businessTaskHandler);
         return "ok";
-    }
-
-    private Task generateTask(JSONObject obj) {
-        Task task = new Task();
-        String args = obj.getJSONObject("args").toString();
-        task.setVariables(args);
-        return task;
     }
 
 

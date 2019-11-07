@@ -1,5 +1,6 @@
 package com.wx.retry;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
@@ -12,6 +13,7 @@ import javax.servlet.MultipartConfigElement;
 @SpringBootApplication
 @Configuration
 @EnableScheduling
+@MapperScan("com.wx.retry.mapper")
 public class ScisApplication {
 
 

@@ -13,7 +13,6 @@ spring:
     show-sql: true
     format-sql: true
 
-
   freemarker:
     suffix: .ftl
     template-loader-path: classpath:/templates/
@@ -40,3 +39,6 @@ spring:
       max-file-size: 100Mb
       max-request-size: 100Mb
 #debug: trueM
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
