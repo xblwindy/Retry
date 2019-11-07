@@ -14,7 +14,7 @@ public interface SchedulerTaskMapper{
 
     void addTaskLog(TaskLog taskLog);
 
-    void updateTaskStatus(@Param("taskId") String taskId,@Param("status") String taskStatus);
+    void updateTaskStatus(@Param("taskId") String taskId,@Param("taskStatus") String taskStatus);
 
     List<Task> queryTask(@Param("status") String status);
 }

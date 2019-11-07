@@ -10,12 +10,12 @@ public class TaskLog {
     private String taskId;
     private String eventStatus;
     private String comment;
-    private Date execTime;
+    private String execTime;
 
     public TaskLog(String taskId, String eventStatus, String comment) {
         this.taskId = taskId;
         this.eventStatus = eventStatus;
-        this.execTime = new Date();
+        this.execTime = System.currentTimeMillis()+"";
         this.comment = comment;
     }
 

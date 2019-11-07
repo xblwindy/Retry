@@ -41,4 +41,4 @@ spring:
 #debug: trueM
 
 mybatis:
-  mapper-locations: classpath:mapping/*Mapper.xml
+  mapper-locations: classpath:mapping/*.xml

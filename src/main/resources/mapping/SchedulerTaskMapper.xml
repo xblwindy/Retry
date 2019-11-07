@@ -31,7 +31,7 @@
 
 
     <insert id="addTaskLog" parameterType="com.wx.retry.scheduler.model.TaskLog">
-        insert into cron_job (task_id, exec_time, event_status, comment)
+        insert into cron_job_log (task_id, exec_time, event_status, comment)
         values (#{taskId}, #{execTime}, #{eventStatus}, #{comment})
     </insert>
 
