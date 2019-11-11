@@ -47,9 +47,11 @@ private Map<String, ScheduledFuture<?>> taskFutures = new ConcurrentHashMap<>();
     @Override
     public void cancelTask(String taskId) {
         if(!taskFutures.isEmpty()){
-            ScheduledFuture<?> future = taskFutures.get(taskId);
-            future.cancel(true);
-            taskFutures.remove(taskId);
+            if(taskFutures.containsKey(taskId)) {
+                ScheduledFuture<?> future = taskFutures.get(taskId);
+                future.cancel(true);
+                taskFutures.remove(taskId);
+            }
             //TODO 增加日志操作
         }
     }

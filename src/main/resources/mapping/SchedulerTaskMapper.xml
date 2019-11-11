@@ -11,11 +11,9 @@
         <result column="start_time" property="startTime" />
         <result column="risk_time" property="riskTime" />
         <result column="task_handler" property="taskHandler" />
-        <result column="auto_destory" property="autoDestroy" />
+        <result column="auto_destory" property="autoDestory" />
         <result column="task_context" property="taskContext" />
     </resultMap>
-
-
 
     <insert id="saveTask" parameterType="com.wx.retry.scheduler.model.Task">
         insert into cron_job (task_id, task_name, start_time, task_status, task_handler, auto_destory,
@@ -29,16 +27,16 @@
         from  cron_job where task_status =#{status}
     </select>
 
-
     <insert id="addTaskLog" parameterType="com.wx.retry.scheduler.model.TaskLog">
         insert into cron_job_log (task_id, exec_time, event_status, comment)
         values (#{taskId}, #{execTime}, #{eventStatus}, #{comment})
     </insert>
 
-
     <update id="updateTaskStatus" parameterType="string">
       update cron_job set task_status = #{taskStatus} where task_id =#{taskId}
     </update>
+
+
 </mapper>
 
 

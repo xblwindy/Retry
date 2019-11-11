@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Data
 public class Task {
-    private String autoDestroy;
+    private String autoDestory;
     private String taskId;
     private String taskName;
     private String startTime;
@@ -38,7 +38,7 @@ public class Task {
     @Override
     public String toString() {
         return "Task{" +
-                "autoDestroy='" + autoDestroy + '\'' +
+                "autoDestroy='" + autoDestory + '\'' +
                 ", taskId='" + taskId + '\'' +
                 ", taskName='" + taskName + '\'' +
                 ", startTime='" + startTime + '\'' +
@@ -55,7 +55,7 @@ public class Task {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
-        return Objects.equals(autoDestroy, task.autoDestroy) &&
+        return Objects.equals(autoDestory, task.autoDestory) &&
                 Objects.equals(taskId, task.taskId) &&
                 Objects.equals(taskName, task.taskName) &&
                 Objects.equals(startTime, task.startTime) &&

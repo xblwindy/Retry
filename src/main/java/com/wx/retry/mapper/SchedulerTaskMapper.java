@@ -2,12 +2,11 @@ package com.wx.retry.mapper;
 
 import com.wx.retry.scheduler.model.Task;
 import com.wx.retry.scheduler.model.TaskLog;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-//@Mapper
+
 public interface SchedulerTaskMapper{
 
     void saveTask(Task task);

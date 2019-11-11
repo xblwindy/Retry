@@ -81,13 +81,14 @@ public class SchedulerTaskServiceImpl implements SchedulerTaskService {
 
     private Task initTask(String taskName, String cron, String classCommonName, String autoDestory, String variables) {
         Task task = new Task();
-        task.setAutoDestroy(autoDestory);
+        task.setAutoDestory(autoDestory);
         task.setStartTime(cron);
         task.setTaskHandler(trans2Bean(classCommonName));
         task.setTaskStatus(TASK_INIT);
         task.setTaskName(taskName);
         task.setTaskId(generateTaskId());
         task.setVariables(variables);
+        task.setRiskTime(System.currentTimeMillis()+"");
         return task;
     }
 

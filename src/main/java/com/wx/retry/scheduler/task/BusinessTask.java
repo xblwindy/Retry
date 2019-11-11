@@ -4,5 +4,5 @@ import com.wx.retry.scheduler.model.Task;
 
 public interface BusinessTask {
 
-    public void doTask(Task task);
+    public void doTask(Task task) throws Exception;
 }

@@ -19,7 +19,7 @@ public abstract class AbstractSchedulerTaskHandler {
             e.printStackTrace();
             execFailed(task);
         }
-        if(Constants.AUTO_DESTROY.equals(task.getAutoDestroy())){
+        if(Constants.AUTO_DESTROY.equals(task.getAutoDestory())){
             cancelTask(task.getTaskId());
         }
     }

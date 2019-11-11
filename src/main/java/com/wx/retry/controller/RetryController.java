@@ -37,7 +37,6 @@ public class RetryController extends BaseController {
         Long startTime = System.currentTimeMillis() + 5 * 1000 * 60;
         Date date = new Date(startTime);
         schedulerTaskService.addCommonTask(TASK_NAME, date, "retryService", variables);
-        triggerTaskQueue.addTask(new Task(), businessTaskHandler);
         return "ok";
     }
 
