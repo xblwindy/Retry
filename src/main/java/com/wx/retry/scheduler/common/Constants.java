@@ -18,4 +18,6 @@ public class Constants {
     public final static String EVENT_FAILED = "23";
     public final static String EVENT_EXEC = "24";
 
+    public final static int RETRY_TIMERS = 1;
+
 }
